@@ -41,16 +41,6 @@ func formHandler(respWriter http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	if req.URL.Path != "/form" {
-		http.Error(respWriter, "404 Not Found", http.StatusNotFound)
-		return
-	}
-
-	if req.Method != http.MethodPost {
-		http.Error(respWriter, "405 Method not allowed", http.StatusMethodNotAllowed)
-		return
-	}
-
 	fmt.Fprintln(respWriter, "POST request successful")
 
 	name := req.FormValue("name")
